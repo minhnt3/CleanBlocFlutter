@@ -43,12 +43,14 @@ abstract class BaseApiService {
     bool hasBasicAuthentication = true,
   }) async {
     try {
-      _dio.interceptors.addAll([
-        ConnectivityInterceptor(),
-        if (hasBasicAuthentication) BasicAuthInterceptor(),
-        if (hasTokenAuthentication) AuthInterceptor(),
-        CustomLogInterceptor(httpRequestExceptionMapper: _httpRequestExceptionMapper),
-      ]);
+      _dio.interceptors.addAll(
+        [
+          ConnectivityInterceptor(),
+          if (hasBasicAuthentication) BasicAuthInterceptor(),
+          if (hasTokenAuthentication) AuthInterceptor(),
+          CustomLogInterceptor(httpRequestExceptionMapper: _httpRequestExceptionMapper),
+        ],
+      );
 
       final response = await _request(
         method: method,
@@ -64,12 +66,13 @@ abstract class BaseApiService {
 
       if (decoder != null) {
         return BaseResponse.fromJson(
-            response.data,
-            (json) => decoder(
-                  (json as Map<String, dynamic>).map(
-                    (key, value) => MapEntry(key, value),
-                  ),
-                ));
+          response.data,
+          (json) => decoder(
+            (json as Map<String, dynamic>).map(
+              (key, value) => MapEntry(key, value),
+            ),
+          ),
+        );
       } else {
         return Future.value(null);
       }

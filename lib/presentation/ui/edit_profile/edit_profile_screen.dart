@@ -30,10 +30,6 @@ class _EditProfileScreenState extends BaseState<EditProfileScreen, EditProfileBl
             },
             child: const Text('Go to gallery'),
           ),
-          ElevatedButton(
-            onPressed: () => context.read<ProfileSharedBloc>().setData(0),
-            child: const Text('clear data'),
-          ),
         ],
       ),
     );

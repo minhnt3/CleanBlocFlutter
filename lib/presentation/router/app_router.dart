@@ -7,7 +7,6 @@ import '../ui/home/home_screen.dart';
 import '../ui/home_detail/home_detail_screen.dart';
 import '../ui/login/login_screen.dart';
 import '../ui/main/main_screen.dart';
-import '../ui/map/map_screen.dart';
 import '../ui/profile/profile_screen.dart';
 import '../ui/reset_password/reset_password_screen.dart';
 import '../ui/setting/settings_screen.dart';
@@ -20,7 +19,6 @@ import '../ui/setting/settings_screen.dart';
       durationInMilliseconds: 200),
   mainScreenRouter,
   AutoRoute(page: GalleryScreen),
-  AutoRoute(page: MapScreen),
 ])
 class $AppRouter {}
 

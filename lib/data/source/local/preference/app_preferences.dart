@@ -76,11 +76,13 @@ class AppPreferences {
   }
 
   Future<void> clearAllUserInfo() async {
-    await Future.wait([
-      _sharedPreference.remove(SharedPrefKey.currentUser),
-      _sharedPreference.remove(SharedPrefKey.isLoggedIn),
-      _sharedPreference.remove(SharedPrefKey.accessToken),
-      _sharedPreference.remove(SharedPrefKey.refreshToken),
-    ]);
+    await Future.wait(
+      [
+        _sharedPreference.remove(SharedPrefKey.currentUser),
+        _sharedPreference.remove(SharedPrefKey.isLoggedIn),
+        _sharedPreference.remove(SharedPrefKey.accessToken),
+        _sharedPreference.remove(SharedPrefKey.refreshToken),
+      ],
+    );
   }
 }

@@ -51,11 +51,14 @@ class AuthInterceptor extends InterceptorsWrapper {
 
   Future<String> _refreshToken() async {
     _isRefreshing = true;
-    final refreshTokenResponse = await refreshTokenService.refreshToken(appPreferences.refreshToken);
-    await Future.wait([
-      appPreferences.saveAccessToken(refreshTokenResponse.data.tokenInfo?.accessToken ?? ''),
-      appPreferences.saveRefreshToken(refreshTokenResponse.data.tokenInfo?.refreshToken ?? ''),
-    ]);
+    final refreshTokenResponse =
+        await refreshTokenService.refreshToken(appPreferences.refreshToken);
+    await Future.wait(
+      [
+        appPreferences.saveAccessToken(refreshTokenResponse.data.tokenInfo?.accessToken ?? ''),
+        appPreferences.saveRefreshToken(refreshTokenResponse.data.tokenInfo?.refreshToken ?? ''),
+      ],
+    );
 
     return refreshTokenResponse.data.tokenInfo?.accessToken ?? '';
   }

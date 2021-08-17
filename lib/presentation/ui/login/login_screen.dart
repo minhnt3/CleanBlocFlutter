@@ -89,11 +89,12 @@ class _LoginScreenState extends BaseState<LoginScreen, LoginBloc> {
 
   PrimaryInputLayout _passwordInputLayout() {
     return PrimaryInputLayout(
-        title: S.of(context).password,
-        hint: 'Enter your password',
-        inputType: TextInputType.visiblePassword,
-        maxLength: 255,
-        onTextChanged: bloc.funcPasswordChanged);
+      title: S.of(context).password,
+      hint: 'Enter your password',
+      inputType: TextInputType.visiblePassword,
+      maxLength: 255,
+      onTextChanged: bloc.funcPasswordChanged,
+    );
   }
 
   Widget _loginButton() {

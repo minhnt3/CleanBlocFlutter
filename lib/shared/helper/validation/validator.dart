@@ -1,6 +1,6 @@
-import '../../../domain/entity/error_field.dart';
 import 'package:dartx/dartx.dart';
 
+import '../../../domain/entity/error_field.dart';
 import '../../../generated/l10n.dart';
 
 class Validator {
@@ -20,8 +20,7 @@ class Validator {
       if (!RegExp(_passwordRegex).hasMatch(password) ||
           !RegExp(_validCharsPasswordRegex).hasMatch(password) ||
           password.length < _minLengthPassword)
-        const ValidationError(
-            ValidationErrorKind.invalidPasswordFormat, ErrorField.password),
+        const ValidationError(ValidationErrorKind.invalidPasswordFormat, ErrorField.password),
       if (passwordConfirmation != null && password != passwordConfirmation)
         const ValidationError(
             ValidationErrorKind.passwordsAreDifferent, ErrorField.passwordConfirmation)
@@ -33,8 +32,7 @@ class Validator {
       if (nickname.isEmpty)
         const ValidationError(ValidationErrorKind.nicknameIsEmpty, ErrorField.nickname),
       if (nickname.isBlank)
-        const ValidationError(
-            ValidationErrorKind.invalidNicknameFormat, ErrorField.nickname)
+        const ValidationError(ValidationErrorKind.invalidNicknameFormat, ErrorField.nickname)
     ];
   }
 

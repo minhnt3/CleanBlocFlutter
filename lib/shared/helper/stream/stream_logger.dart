@@ -22,15 +22,15 @@ class StreamLogger {
       required bool onDone,
       required bool onCancel}) {
     return stream.doOnListen(() {
-      if (onListen) printKV('▶️ ${DateTime.now().toString()}', '$name onSubscribed');
+      if (onListen) printKV('▶️ ${DateTime.now()}', '$name: onSubscribed');
     }).doOnData((event) {
-      if (onData) printKV('🟢 ${DateTime.now()}', '$name onNext: $event');
+      if (onData) printKV('🟢 ${DateTime.now()}', '$name: $event');
     }).doOnCancel(() {
-      if (onCancel) printKV('🟡 ${DateTime.now().toString()}', '$name onCanceled');
+      if (onCancel) printKV('🟡 ${DateTime.now()}', '$name: onCanceled');
     }).doOnError((e, _) {
-      if (onError) printKV('🔴 ${DateTime.now().toString()}', '$name onError: $e');
+      if (onError) printKV('🔴 ${DateTime.now()}', '$name: $e');
     }).doOnDone(() {
-      if (onDone) printKV('☑️️ ${DateTime.now().toString()}', '$name onCompleted');
+      if (onDone) printKV('☑️️ ${DateTime.now()}', '$name: onCompleted');
     });
   }
 }

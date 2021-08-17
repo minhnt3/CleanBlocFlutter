@@ -8,7 +8,6 @@ import '../base_api_service.dart';
 
 @LazySingleton()
 class RefreshTokenService extends BaseApiService {
-
   Future<BaseResponse<RefreshTokenResponse>> refreshToken(String refreshToken) async {
     return request(
       method: Method.post,

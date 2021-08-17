@@ -6,7 +6,6 @@ import '../../../../../domain/exception/remote_exception.dart';
 import '../../model/api_response/error_response.dart';
 import '../../model/mapper/error_response_mapper.dart';
 
-
 @Injectable()
 class HttpRequestExceptionMapper extends ExceptionMapper<RemoteException> {
   final ErrorResponseMapper _errorResponseMapper;

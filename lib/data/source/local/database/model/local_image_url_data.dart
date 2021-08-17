@@ -12,14 +12,15 @@ class LocalImageUrlData extends BaseLocalData {
   String md;
   String sm;
 
-  LocalImageUrlData(
-      {this.id = 0,
-      this.type = LocalImageUrlType.unknown,
-      this.recordId = -1,
-      this.origin = '',
-      this.lg = '',
-      this.md = '',
-      this.sm = ''});
+  LocalImageUrlData({
+    this.id = 0,
+    this.type = LocalImageUrlType.unknown,
+    this.recordId = -1,
+    this.origin = '',
+    this.lg = '',
+    this.md = '',
+    this.sm = '',
+  });
 
   int get dbType {
     switch (type) {

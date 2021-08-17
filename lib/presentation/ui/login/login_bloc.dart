@@ -49,11 +49,13 @@ class LoginBloc extends BaseBloc {
     streamIsButtonLoginEnable = Rx.combineLatest2(_emailController.stream,
         _passwordController.stream, (String a, String b) => a.isNotEmpty && b.isNotEmpty).share();
 
-    streamError = Rx.merge([
-      _onServerErrorController.stream,
-      validationError,
-      streamIsButtonLoginEnable.mapTo(null),
-    ]);
+    streamError = Rx.merge(
+      [
+        _onServerErrorController.stream,
+        validationError,
+        streamIsButtonLoginEnable.mapTo(null),
+      ],
+    );
 
     streamLoginSuccess = validationError.flatMap((String? error) {
       if (error == null) {

@@ -16,8 +16,13 @@ class UserLocalDataSource {
   final LocalImageUrlDataMapper _localImageUrlDataMapper;
   final PreferenceUserDataMapper _preferenceUserDataMapper;
 
-  UserLocalDataSource(this._appPreferences, this._userDao, this._localUserDataMapper,
-      this._localImageUrlDataMapper, this._preferenceUserDataMapper);
+  UserLocalDataSource(
+    this._appPreferences,
+    this._userDao,
+    this._localUserDataMapper,
+    this._localImageUrlDataMapper,
+    this._preferenceUserDataMapper,
+  );
 
   Future<bool> saveAccessToken(String token) => _appPreferences.saveAccessToken(token);
 

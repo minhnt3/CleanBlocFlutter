@@ -30,14 +30,16 @@ class App {
     /// config logging
     _configLogging();
 
-    await Future.wait([
-      SystemChrome.setEnabledSystemUIOverlays([SystemUiOverlay.bottom, SystemUiOverlay.top]),
-      BuildConfig.getPackageName(),
-      BuildConfig.getVersionCode(),
-      BuildConfig.getVersionName(),
-      Firebase.initializeApp()
-          .then((value) => GetIt.instance.get<FirebaseMessagingManager>().init()),
-    ]);
+    await Future.wait(
+      [
+        SystemChrome.setEnabledSystemUIOverlays([SystemUiOverlay.bottom, SystemUiOverlay.top]),
+        BuildConfig.getPackageName(),
+        BuildConfig.getVersionCode(),
+        BuildConfig.getVersionName(),
+        Firebase.initializeApp()
+            .then((value) => GetIt.instance.get<FirebaseMessagingManager>().init()),
+      ],
+    );
   }
 
   static _runMyApp() async {

@@ -1,5 +1,6 @@
-import '../base/base_remote_data.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+
+import '../base/base_remote_data.dart';
 
 part 'error_response_detail.freezed.dart';
 part 'error_response_detail.g.dart';

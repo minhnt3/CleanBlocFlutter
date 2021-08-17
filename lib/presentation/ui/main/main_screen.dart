@@ -59,10 +59,6 @@ class _MainScreenState extends BaseState<MainScreen, MainBloc> {
                       opacity: animation,
                       child: child,
                     ),
-                    floatingActionButton: FloatingActionButton(
-                      onPressed: () => bloc.funcIncreaseCounter(1),
-                      child: const Icon(Icons.add),
-                    ),
                     bottomNavigationBar: BottomNavigationBar(
                       items: [
                         const BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
@@ -80,25 +76,9 @@ class _MainScreenState extends BaseState<MainScreen, MainBloc> {
                   );
                 },
               ),
-              GoToMapButton(),
             ],
           ),
         ),
-      ),
-    );
-  }
-}
-
-class GoToMapButton extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Align(
-      alignment: Alignment.centerLeft,
-      child: ElevatedButton(
-        child: const Text('go to map'),
-        onPressed: () {
-          AutoRouter.of(context).push(MapScreenRoute(mainBloc: context.read<MainBloc>()));
-        },
       ),
     );
   }

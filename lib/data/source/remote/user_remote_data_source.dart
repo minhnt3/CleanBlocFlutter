@@ -27,8 +27,10 @@ class UserRemoteDataSource {
 
   Future<Tuple2<Token, User>> login(String email, String password) async {
     final response = await _userService.login(email, password);
-    return Tuple2(_remoteTokenDataMapper.mapToEntity(response.data.tokenInfo),
-        _remoteUserDataMapper.mapToEntity(response.data.user));
+    return Tuple2(
+      _remoteTokenDataMapper.mapToEntity(response.data.tokenInfo),
+      _remoteUserDataMapper.mapToEntity(response.data.user),
+    );
   }
 
   Future<void> forgotPassword(String email) => _userService.forgotPassword(email);
@@ -36,7 +38,9 @@ class UserRemoteDataSource {
   Future<Tuple2<Token, User>> register(String nickname, String email, String password,
       String? gender, String? avatarFilePath) async {
     final response = await _userService.register(nickname, email, password, gender, avatarFilePath);
-    return Tuple2(_remoteTokenDataMapper.mapToEntity(response.data.tokenInfo),
-        _remoteUserDataMapper.mapToEntity(response.data.user));
+    return Tuple2(
+      _remoteTokenDataMapper.mapToEntity(response.data.tokenInfo),
+      _remoteUserDataMapper.mapToEntity(response.data.user),
+    );
   }
 }

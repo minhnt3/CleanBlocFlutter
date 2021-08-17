@@ -1,14 +1,13 @@
 import 'package:auto_route/auto_route.dart';
-import '../resource/dimens/dimens.dart';
-import 'package:dartx/dartx.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import '../../../shared/extensions.dart';
 import '../../router/app_router.gr.dart';
 import '../base/base_state.dart';
 import '../main/main_bloc.dart';
+import '../resource/dimens/dimens.dart';
 import 'home_bloc.dart';
-import '../../../shared/extensions.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -44,29 +43,18 @@ class _HomeScreenState extends BaseState<HomeScreen, HomeBloc> {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        StreamBuilder<int>(
-            stream: context.read<MainBloc>().streamCounter,
-            initialData: context.read<MainBloc>().streamCounter.values.firstOrNull,
-            builder: (context, snapshot) {
-              return Text('Counter = ${snapshot.data}');
-            }),
-        Expanded(
-          child: ListView.builder(
-              controller: _scrollController,
-              itemCount: 100,
-              itemBuilder: (context, index) {
-                return InkWell(
-                  child: SizedBox(height: Dimens.h(50), child: Center(child: Text('$index'))),
-                  onTap: () {
-                    context.read<MainBloc>().funcIncreaseCounter(index);
-                    AutoRouter.of(context).push(const HomeDetailScreenRoute());
-                  },
-                );
-              }),
-        ),
-      ],
+    return ListView.builder(
+      controller: _scrollController,
+      itemCount: 100,
+      itemBuilder: (context, index) {
+        return InkWell(
+          child: SizedBox(height: Dimens.h(50), child: Center(child: Text('$index'))),
+          onTap: () {
+            context.read<MainBloc>().funcIncreaseCounter(index);
+            AutoRouter.of(context).push(const HomeDetailScreenRoute());
+          },
+        );
+      },
     );
   }
 

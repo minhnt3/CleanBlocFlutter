@@ -1,5 +1,4 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:dartx/dartx.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../../../shared/extensions.dart';
@@ -36,16 +35,6 @@ class _ProfileScreenState extends BaseState<ProfileScreen, ProfileBloc> {
               AutoRouter.of(context).push(const EditProfileScreenRoute());
             },
             child: const Text('Go to edit'),
-          ),
-          StreamBuilder<int>(
-              stream: context.read<MainBloc>().streamCounter,
-              initialData: context.read<MainBloc>().streamCounter.values.firstOrNull,
-              builder: (context, snapshot) {
-                return Text('Counter = ${snapshot.data}');
-              }),
-          ElevatedButton(
-            onPressed: () => context.read<MainBloc>().funcIncreaseCounter(1),
-            child: const Text('Increase Counter'),
           ),
         ],
       ),

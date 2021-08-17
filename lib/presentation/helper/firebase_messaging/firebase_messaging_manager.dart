@@ -54,12 +54,14 @@ class FirebaseMessagingManager {
     _messaging.onTokenRefresh.listen(_saveDeviceToken);
 
     /// init local notification
-    await Future.wait([
-      FlutterLocalNotificationsPlugin().initialize(
-        init,
-        onSelectNotification: _onSelectNotification,
-      ),
-    ]);
+    await Future.wait(
+      [
+        FlutterLocalNotificationsPlugin().initialize(
+          init,
+          onSelectNotification: _onSelectNotification,
+        ),
+      ],
+    );
 
     /// Set the background messaging handler early on
     FirebaseMessaging.onBackgroundMessage(_handleBackgroundMessage);
@@ -70,9 +72,14 @@ class FirebaseMessagingManager {
     /// default FCM channel to enable heads up notifications.
     await FlutterLocalNotificationsPlugin()
         .resolvePlatformSpecificImplementation<AndroidFlutterLocalNotificationsPlugin>()
-        ?.createNotificationChannel(const AndroidNotificationChannel(
-            _channelId, _channelName, _channelDescription,
-            importance: Importance.high));
+        ?.createNotificationChannel(
+          const AndroidNotificationChannel(
+            _channelId,
+            _channelName,
+            _channelDescription,
+            importance: Importance.high,
+          ),
+        );
 
     /// Update the iOS foreground notification presentation options to allow
     /// heads up notifications.
