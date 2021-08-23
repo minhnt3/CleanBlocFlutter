@@ -15,10 +15,7 @@ class LoginController extends BaseController {
   LoginController(
     this._loginUseCase,
     this._getHasLoginUseCase,
-  ) {
-    email+='1';
-    print('email $email ${hashCode}');
-  }
+  );
 
   @override
   void onReady() {
