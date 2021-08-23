@@ -2,7 +2,7 @@ library domain;
 
 export 'constants/constant.dart';
 export 'constants/server_constants.dart';
-export 'di/use_case_module.dart';
+export 'di/di.dart';
 export 'entity/base/base_entity.dart';
 export 'entity/error_field.dart';
 export 'entity/image_url.dart';

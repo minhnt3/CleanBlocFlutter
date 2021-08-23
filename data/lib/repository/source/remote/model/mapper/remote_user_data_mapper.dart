@@ -1,9 +1,11 @@
 import 'package:domain/domain.dart';
+import 'package:injectable/injectable.dart';
 import '../remote_avatar_data.dart';
 import '../remote_user_data.dart';
 import 'base/base_remote_data_mapper.dart';
 import 'remote_image_url_data_mapper.dart';
 
+@Injectable()
 class RemoteUserDataMapper extends BaseRemoteDataMapper<RemoteUserData, User>
     with RemoteDataMapperMixin {
   final RemoteImageUrlDataMapper _remoteImageUrlDataMapper;

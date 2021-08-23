@@ -1,10 +1,12 @@
 import 'package:dio/dio.dart';
+import 'package:injectable/injectable.dart';
 
 import '../../model/api_response/base_response.dart';
 import '../../model/api_response/login_response.dart';
 import '../../model/api_response/user_response.dart';
 import '../base_api_service.dart';
 
+@LazySingleton()
 class UserService extends BaseApiService {
   Future<BaseResponse<LoginResponse>> login(String email, String password) async {
     return request(

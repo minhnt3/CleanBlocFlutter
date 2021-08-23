@@ -1,5 +1,8 @@
+import 'package:injectable/injectable.dart';
+
 import 'preference/app_preferences.dart';
 
+@LazySingleton()
 class AppLocalDataSource {
   final AppPreferences _appPreferences;
 

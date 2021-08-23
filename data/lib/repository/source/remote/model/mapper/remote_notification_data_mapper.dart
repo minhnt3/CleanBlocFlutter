@@ -1,7 +1,9 @@
 import 'package:domain/domain.dart';
+import 'package:injectable/injectable.dart';
 import '../remote_notification_data.dart';
 import 'base/base_remote_data_mapper.dart';
 
+@Injectable()
 class RemoteNotificationDataMapper
     extends BaseRemoteDataMapper<RemoteNotificationData, Notification> {
   @override

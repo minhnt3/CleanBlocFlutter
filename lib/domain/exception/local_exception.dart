@@ -1,1 +1,0 @@
-class LocalException implements Exception {}

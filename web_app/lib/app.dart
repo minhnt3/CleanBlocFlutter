@@ -2,7 +2,6 @@ import 'package:core/core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:get/get.dart';
-import 'di/web_app_module.dart';
 import 'routes/app_routes.dart';
 
 class App extends StatelessWidget {
@@ -14,8 +13,7 @@ class App extends StatelessWidget {
       darkTheme: AppThemes.darkTheme,
       theme: AppThemes.lightTheme,
       onGenerateRoute: AppRoutes.onGenerateRoutes,
-      initialRoute: AppRoutes.login,
-      initialBinding: WebAppModule(),
+      initialRoute: AppRoutes.home,
       localeResolutionCallback: (deviceLocale, supportedLocales) {
         if (deviceLocale != null && supportedLocales.contains(deviceLocale)) {
           return deviceLocale;

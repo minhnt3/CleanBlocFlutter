@@ -1,7 +1,10 @@
+import 'package:injectable/injectable.dart';
+
 import '../api_response/error_response_detail.dart';
 import 'base/base_remote_data_mapper.dart';
 import 'package:domain/domain.dart';
 
+@Injectable()
 class ErrorResponseDetailMapper
     extends BaseRemoteDataMapper<ErrorResponseDetail, ServerErrorDetail> {
   @override

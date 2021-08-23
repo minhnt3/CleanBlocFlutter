@@ -1,8 +1,10 @@
 import 'package:domain/domain.dart';
+import 'package:injectable/injectable.dart';
 
 import 'preference/app_preferences.dart';
 import 'preference/model/mapper/preference_user_data_mapper.dart';
 
+@LazySingleton()
 class UserLocalDataSource {
   final AppPreferences _appPreferences;
   final PreferenceUserDataMapper _preferenceUserDataMapper;

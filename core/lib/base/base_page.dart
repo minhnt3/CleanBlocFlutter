@@ -6,8 +6,18 @@ import '../helper/error_handler/error_listener_mixin.dart';
 import '../utils/view_utils.dart';
 import 'base_controller.dart';
 
-abstract class BasePage<C extends BaseController> extends GetWidget<C> with ErrorListenerMixin {
-  const BasePage({Key? key}) : super(key: key);
+abstract class BasePage<C extends BaseController> extends GetResponsiveView<C>
+    with ErrorListenerMixin {
+
+  BasePage({Key? key})
+      : super(
+            key: key,
+            alwaysUseBuilder: true,
+            settings: const ResponsiveScreenSettings(
+              desktopChangePoint: 900,
+              tabletChangePoint: 650,
+              watchChangePoint: 300,
+            ));
 
   @override
   Widget build(BuildContext context) {

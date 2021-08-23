@@ -1,7 +1,7 @@
 import 'dart:collection';
 
 import 'package:dio/dio.dart';
-import 'package:get/get.dart';
+import 'package:get_it/get_it.dart';
 import 'package:tuple/tuple.dart';
 
 import '../../../local/preference/app_preferences.dart';
@@ -9,8 +9,8 @@ import '../config/api_config.dart';
 import '../services/refresh_token_service.dart';
 
 class AuthInterceptor extends InterceptorsWrapper {
-  final AppPreferences appPreferences = Get.find();
-  final RefreshTokenService refreshTokenService = Get.find();
+  final AppPreferences appPreferences = GetIt.instance.get();
+  final RefreshTokenService refreshTokenService = GetIt.instance.get();
   var _isRefreshing = false;
   final _queue = Queue<Tuple2<RequestOptions, ErrorInterceptorHandler>>();
 

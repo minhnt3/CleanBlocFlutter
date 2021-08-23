@@ -1,3 +1,5 @@
+import 'package:injectable/injectable.dart';
+
 import 'api/services/user_service.dart';
 import 'package:tuple/tuple.dart';
 
@@ -5,6 +7,7 @@ import 'package:domain/domain.dart';
 import 'model/mapper/remote_token_data_mapper.dart';
 import 'model/mapper/remote_user_data_mapper.dart';
 
+@LazySingleton()
 class UserRemoteDataSource {
   final UserService _userService;
   final RemoteUserDataMapper _remoteUserDataMapper;

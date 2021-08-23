@@ -1,4 +1,4 @@
-import 'package:get/get.dart' hide Response;
+import 'package:get_it/get_it.dart';
 
 import 'config/api_config.dart';
 import 'package:dio/dio.dart';
@@ -14,7 +14,7 @@ abstract class BaseApiService {
   String get baseUrl => ApiConfig.baseUrl();
 
   late Dio _dio;
-  final HttpRequestExceptionMapper _httpRequestExceptionMapper = Get.find();
+  final HttpRequestExceptionMapper _httpRequestExceptionMapper = GetIt.instance.get();
 
   BaseApiService() {
     _dio = Dio(

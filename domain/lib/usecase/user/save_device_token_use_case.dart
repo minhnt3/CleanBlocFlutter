@@ -1,5 +1,8 @@
+import 'package:injectable/injectable.dart';
+
 import '../../repository/user_repository.dart';
 
+@Injectable()
 class SaveDeviceTokenUseCase {
   final UserRepository _userRepository;
 
