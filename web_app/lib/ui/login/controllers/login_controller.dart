@@ -10,20 +10,10 @@ class LoginController extends BaseController {
   String email = '';
   String password = '';
   final LoginUseCase _loginUseCase;
-  final GetHasLoginUseCase _getHasLoginUseCase;
 
   LoginController(
     this._loginUseCase,
-    this._getHasLoginUseCase,
   );
-
-  @override
-  void onReady() {
-    super.onReady();
-    if (_getHasLoginUseCase()) {
-      _navigateToHome();
-    }
-  }
 
   void onEmailChanged(String email) {
     this.email = email;

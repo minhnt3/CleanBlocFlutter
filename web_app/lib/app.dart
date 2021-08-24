@@ -12,7 +12,7 @@ class App extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       darkTheme: AppThemes.darkTheme,
       theme: AppThemes.lightTheme,
-      onGenerateRoute: AppRoutes.onGenerateRoutes,
+      getPages: AppRoutes.pages,
       initialRoute: AppRoutes.home,
       localeResolutionCallback: (deviceLocale, supportedLocales) {
         if (deviceLocale != null && supportedLocales.contains(deviceLocale)) {
