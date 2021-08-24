@@ -13,12 +13,6 @@ class AppRoutes {
   static const String login = '/login';
   static const String notFound = '/404';
 
-  static final paths = [
-    home,
-    login,
-    notFound,
-  ];
-
   static final RouteGuard _routeGuard = RouteGuard(GetIt.instance.get());
 
   static final List<GetPage> pages = [

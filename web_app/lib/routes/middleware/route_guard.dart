@@ -9,19 +9,36 @@ class RouteGuard extends GetMiddleware {
 
   RouteGuard(this._getHasLoginUseCase);
 
+  bool get _isLoggedIn => _getHasLoginUseCase();
+
+  RouteSettings checkAndRedirectToLogin(String? route) {
+    if (!_isLoggedIn) {
+      return const RouteSettings(name: AppRoutes.login);
+    }
+
+    return RouteSettings(name: route);
+  }
+
+  RouteSettings checkAndRedirectToHome(String? route) {
+    if (_isLoggedIn) {
+      return const RouteSettings(name: AppRoutes.home);
+    }
+
+    return RouteSettings(name: route);
+  }
+
   @override
   int? get priority => 1;
 
   @override
   RouteSettings? redirect(String? route) {
-    if (!AppRoutes.paths.contains(route)) {
-      return const RouteSettings(name: AppRoutes.notFound);
+    switch (route) {
+      case AppRoutes.home:
+        return checkAndRedirectToLogin(route);
+      case AppRoutes.login:
+        return checkAndRedirectToHome(route);
+      default:
+        return const RouteSettings(name: AppRoutes.notFound);
     }
-
-    if (!_getHasLoginUseCase()) {
-      return const RouteSettings(name: AppRoutes.login);
-    }
-
-    return RouteSettings(name: route);
   }
 }
