@@ -6,7 +6,7 @@ class RemoteException implements Exception {
   final RemoteExceptionKind kind;
   final int? statusCode;
   final ServerError? errorResponse;
-  final Exception? exception;
+  final Object? exception;
 
   const RemoteException._(this.kind, {this.statusCode, this.errorResponse, this.exception});
 
@@ -25,7 +25,7 @@ class RemoteException implements Exception {
 
   const RemoteException.cancellationError() : this._(RemoteExceptionKind.cancellation);
 
-  const RemoteException.unexpectedError(Exception exception)
+  const RemoteException.unexpectedError(Object? exception)
       : this._(RemoteExceptionKind.unexpected, exception: exception);
 
   List<ServerErrorDetail>? get serverErrors => errorResponse?.errors;

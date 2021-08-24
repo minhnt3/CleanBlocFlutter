@@ -39,9 +39,6 @@ class HttpRequestExceptionMapper extends ExceptionMapper<RemoteException> {
       }
     }
 
-    // other Dio error,...
-    return RemoteException.unexpectedError(exception is Exception
-        ? exception
-        : Exception(exception?.toString() ?? 'exception is null'));
+    return RemoteException.unexpectedError(exception);
   }
 }

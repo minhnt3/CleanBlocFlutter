@@ -16,7 +16,7 @@ class RemoteErrorHandler extends ErrorHandler<RemoteException, RemoteErrorListen
           case ServerErrorCode.multipleDeviceLogin:
             listener.onSessionExpiredError(
               context,
-              exception.firstServerErrorMessage ?? S.of(context).unexpected_error,
+              exception.firstServerErrorMessage ?? S.current.unexpected_error,
             );
             break;
           default:
@@ -32,31 +32,31 @@ class RemoteErrorHandler extends ErrorHandler<RemoteException, RemoteErrorListen
         if (exception.isServerInternalError) {
           listener.onServerInternalError(
             context,
-            S.of(context).server_down_error,
+            S.current.server_down_error,
           );
         } else {
           listener.onHttpError(
             context,
-            S.of(context).unexpected_error,
+            S.current.unexpected_error,
           );
         }
         break;
       case RemoteExceptionKind.noInternet:
         listener.onNoInterNetConnectionError(
           context,
-          S.of(context).check_connection,
+          S.current.check_connection,
         );
         break;
       case RemoteExceptionKind.network:
         listener.onNetworkError(
           context,
-          S.of(context).server_problem_try_later,
+          S.current.server_problem_try_later,
         );
         break;
       case RemoteExceptionKind.timeout:
         listener.onTimeoutError(
           context,
-          S.of(context).check_connection,
+          S.current.check_connection,
         );
         break;
       case RemoteExceptionKind.cancellation:
@@ -64,7 +64,7 @@ class RemoteErrorHandler extends ErrorHandler<RemoteException, RemoteErrorListen
       case RemoteExceptionKind.unexpected:
         listener.onUnexpectedError(
           context,
-          S.of(context).unexpected_error,
+          S.current.unexpected_error,
         );
         break;
     }
