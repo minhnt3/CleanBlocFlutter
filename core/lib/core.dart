@@ -3,7 +3,7 @@ library core;
 export 'base/base_controller.dart';
 export 'base/base_page.dart';
 export 'base/base_page.dart';
-export 'di/di.dart';
+export 'config/config.dart';
 export 'extensions/context_ext.dart';
 export 'generated/l10n.dart';
 export 'helper/deeplink/deep_link.dart';

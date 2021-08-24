@@ -17,10 +17,10 @@ class DisposeBag {
     _disposable.forEach((disposable) {
       if (disposable is StreamSubscription) {
         disposable.cancel();
-        if (DisposeBagConfig.enableLogging) printKV(tag, 'Canceled $disposable');
+        if (DisposeBagConfig.enableLogging) Log.dKV(tag, 'Canceled $disposable');
       } else if (disposable is StreamController) {
         disposable.close();
-        if (DisposeBagConfig.enableLogging) printKV(tag, 'Closed $disposable');
+        if (DisposeBagConfig.enableLogging) Log.dKV(tag, 'Closed $disposable');
       }
     });
 

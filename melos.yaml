@@ -3,6 +3,7 @@ name: basecleanflutter
 packages:
   - data/**
   - domain/**
+  - config/**
   - core/**
   - shared/**
   - web_app/**
@@ -68,3 +69,7 @@ scripts:
   gen_watch_admin:
     run: pub global run melos exec --fail-fast --scope="*admin*" --depends-on="build_runner" "flutter packages pub run build_runner watch --delete-conflicting-outputs"
     description: build_runner watch admin module.
+
+  run_web_app_develop:
+    run: pub global run melos exec --fail-fast --scope="*web_app*" "flutter run -t lib/main_dev.dart --flavor develop"
+    description: run web_app develop.

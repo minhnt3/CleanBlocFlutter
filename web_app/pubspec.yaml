@@ -34,8 +34,6 @@ dependencies:
   get_it: ^7.2.0
   injectable: ^1.5.0
   url_strategy: ^0.2.0
-  data:
-    path: ../data
   domain:
     path: ../domain
   shared:

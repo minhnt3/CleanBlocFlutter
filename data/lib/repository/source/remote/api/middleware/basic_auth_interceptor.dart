@@ -1,4 +1,4 @@
-import 'dart:convert';
+// import 'dart:convert';
 
 import 'package:dio/dio.dart';
 // import 'package:shared/shared.dart';
@@ -15,10 +15,10 @@ class BasicAuthInterceptor extends InterceptorsWrapper {
     return super.onRequest(options, handler);
   }
 
-  static String _basicAuthenticationHeader(
-      String basicAuthorizationName, String basicAuthorizationPassword) {
-    return 'Basic ${base64Encode(
-      utf8.encode('$basicAuthorizationName:$basicAuthorizationPassword'),
-    )}';
-  }
+  // static String _basicAuthenticationHeader(
+  //     String basicAuthorizationName, String basicAuthorizationPassword) {
+  //   return 'Basic ${base64Encode(
+  //     utf8.encode('$basicAuthorizationName:$basicAuthorizationPassword'),
+  //   )}';
+  // }
 }

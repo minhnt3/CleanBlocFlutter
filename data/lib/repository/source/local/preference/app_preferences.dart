@@ -1,9 +1,9 @@
 import 'dart:convert';
-import 'dart:html' as html;
 
 import 'package:flutter/foundation.dart';
 import 'package:injectable/injectable.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:universal_html/html.dart';
 
 import 'config/shared_pref_key.dart';
 import 'error/shared_pref_exception.dart';
@@ -17,7 +17,7 @@ class AppPreferences {
 
   Future<bool> saveAccessToken(String token) {
     if (kIsWeb) {
-      html.window.document.cookie = 'username=$token; max-age=31536000';
+      window.document.cookie = 'username=$token; max-age=31536000';
       return Future.value(true);
     }
     return _sharedPreference
@@ -27,7 +27,7 @@ class AppPreferences {
 
   String get accessToken {
     if (kIsWeb) {
-      return html.window.document.cookie ?? '';
+      return window.document.cookie ?? '';
     }
     return _sharedPreference.getString(SharedPrefKey.accessToken) ?? '';
   }

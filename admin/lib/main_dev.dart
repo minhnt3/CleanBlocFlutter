@@ -5,7 +5,7 @@ import 'app.dart';
 import 'config/config.dart';
 
 void main() async {
-  BuildConfig.flavor = Flavor.production;
+  BuildConfig.flavor = Flavor.develop;
   await config();
   runApp(App());
 }

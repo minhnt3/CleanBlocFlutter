@@ -5,7 +5,7 @@ import 'app.dart';
 import 'config/config.dart';
 
 void main() async {
-  BuildConfig.flavor = Flavor.production;
+  BuildConfig.flavor = Flavor.staging;
   await config();
   runApp(App());
 }
