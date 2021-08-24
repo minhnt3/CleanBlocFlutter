@@ -1,3 +1,3 @@
 library data;
 
-export 'di/di.dart';
+export 'src/config/config.dart';

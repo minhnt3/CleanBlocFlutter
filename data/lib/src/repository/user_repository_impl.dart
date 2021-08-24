@@ -45,7 +45,6 @@ class UserRepositoryImpl implements UserRepository {
 
   Future<List<Object>> _saveTokenAndUser(Token token, User user) async {
     return Future.wait([
-      _userLocalDataSource.saveIsLoggedIn(true),
       _userLocalDataSource.saveAccessToken(token.accessToken),
       _userLocalDataSource.saveRefreshToken(token.refreshToken),
       _userLocalDataSource.saveUserPreference(user)

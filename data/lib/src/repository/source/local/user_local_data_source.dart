@@ -22,8 +22,6 @@ class UserLocalDataSource {
 
   String get deviceToken => _appPreferences.deviceToken;
 
-  Future<bool> saveIsLoggedIn(bool isLoggedIn) => _appPreferences.saveIsLoggedIn(isLoggedIn);
-
   bool get isLoggedIn => _appPreferences.isLoggedIn;
 
   Future<bool> saveUserPreference(User user) =>

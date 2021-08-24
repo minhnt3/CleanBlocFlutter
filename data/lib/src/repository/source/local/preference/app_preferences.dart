@@ -42,14 +42,8 @@ class AppPreferences {
     return _sharedPreference.getString(SharedPrefKey.refreshToken) ?? '';
   }
 
-  Future<bool> saveIsLoggedIn(bool isLoggedIn) {
-    return _sharedPreference
-        .setBool(SharedPrefKey.isLoggedIn, isLoggedIn)
-        .catchError((error) => throw SharedPrefException('Can not save isLoggedIn flag', error));
-  }
-
   bool get isLoggedIn {
-    return _sharedPreference.getBool(SharedPrefKey.isLoggedIn) ?? false;
+    return accessToken.isNotEmpty;
   }
 
   Future<bool> saveCurrentUser(PreferenceUserData preferenceUserData) {
@@ -88,7 +82,6 @@ class AppPreferences {
     await Future.wait(
       [
         _sharedPreference.remove(SharedPrefKey.currentUser),
-        _sharedPreference.remove(SharedPrefKey.isLoggedIn),
         _sharedPreference.remove(SharedPrefKey.accessToken),
         _sharedPreference.remove(SharedPrefKey.refreshToken),
       ],
